@@ -14,4 +14,5 @@
 // ***********************************************************
 
 // Import commands.ts using ES2015 syntax:
+import "@frsource/cypress-plugin-visual-regression-diff";
 import './commands';

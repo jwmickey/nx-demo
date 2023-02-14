@@ -42,6 +42,7 @@ describe(WeatherCardComponent.name, () => {
     po.currentTempUnit().should('contain.text', 'F');
     po.highTemp().should('contain.text', '80');
     po.lowTemp().should('contain.text', '65');
+    po.root().matchImage();
   });
 
   it('renders without showing high/low info', () => {
@@ -60,6 +61,7 @@ describe(WeatherCardComponent.name, () => {
     po.currentTempUnit().should('contain.text', 'C');
     po.highTemp().should('not.exist');
     po.lowTemp().should('not.exist');
+    po.root().matchImage();
   });
 
 })
