@@ -3,7 +3,7 @@ import { ICON_MAP, WWO_CODE, WEATHER_SYMBOL } from './weather-icon.constants';
 
 enum IconType {
   emoji,
-  icon
+  icon,
 }
 
 @Component({
@@ -16,12 +16,14 @@ export class WeatherIconComponent {
   @Input() iconType = IconType.icon;
 
   get weatherSymbol(): string {
-    const index = this.weatherCode in WWO_CODE ? WWO_CODE[this.weatherCode] : 'Unknown';
+    const index =
+      this.weatherCode in WWO_CODE ? WWO_CODE[this.weatherCode] : 'Unknown';
     return WEATHER_SYMBOL[index];
   }
 
   get weatherIcon(): string {
-    const index = this.weatherCode in WWO_CODE ? WWO_CODE[this.weatherCode] : 'Unknown';
+    const index =
+      this.weatherCode in WWO_CODE ? WWO_CODE[this.weatherCode] : 'Unknown';
     return ICON_MAP[index];
   }
 }

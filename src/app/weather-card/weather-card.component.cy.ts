@@ -15,11 +15,11 @@ describe(WeatherCardComponent.name, () => {
         {
           provide: WeatherService,
           useValue: {
-            getCurrentData: (): Observable<WeatherData> => mockCurrentData$
-          }
-        }
+            getCurrentData: (): Observable<WeatherData> => mockCurrentData$,
+          },
+        },
       ],
-      autoDetectChanges: true
+      autoDetectChanges: true,
     });
   });
 
@@ -31,11 +31,11 @@ describe(WeatherCardComponent.name, () => {
       low: 65,
       highTime: new Date().toLocaleString(),
       lowTime: new Date(Date.now() - 3600 * 4).toLocaleString(),
-      weatherDescription: "Rainy",
-      weatherCode: "266",
-      windDegree: "60",
-      windSpeedMph: "4",
-      windDir: "n"
+      weatherDescription: 'Rainy',
+      weatherCode: '266',
+      windDegree: '60',
+      windSpeedMph: '4',
+      windDir: 'n',
     });
     cy.detectChanges();
     po.currentTempNumber().should('contain.text', '75');
@@ -51,10 +51,10 @@ describe(WeatherCardComponent.name, () => {
       current: 20,
       highTime: new Date().toLocaleString(),
       lowTime: new Date(Date.now() - 3600 * 4).toLocaleString(),
-      weatherCode: "266",
-      windDegree: "60",
-      windSpeedMph: "4",
-      windDir: "n"
+      weatherCode: '266',
+      windDegree: '60',
+      windSpeedMph: '4',
+      windDir: 'n',
     });
     cy.detectChanges();
     po.currentTempNumber().should('contain.text', '20');
@@ -63,5 +63,4 @@ describe(WeatherCardComponent.name, () => {
     po.lowTemp().should('not.exist');
     po.root().matchImage();
   });
-
-})
+});

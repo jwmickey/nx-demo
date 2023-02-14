@@ -11,7 +11,7 @@ describe('WeatherCardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [WeatherCardComponent],
-      providers: []
+      providers: [],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WeatherCardComponent);

@@ -1,20 +1,31 @@
-<div class="weather-card" *ngIf="tempData | async as data else loading">
-    <div class="stack current-temp">
-        <span class="temp-number">{{ data.current }}<span class="temp-unit">&deg; {{ data.unit }}</span></span>
-    </div>
-    <div class="stack icon">
-        <small>{{ data.weatherDescription }}</small>
-        <nx-demo-weather-icon class="icon" [weatherCode]="data.weatherCode || ''"></nx-demo-weather-icon>
-        <small *ngIf="data.high && data.low"><span data-cy="high">{{ data.high }}&deg;</span> / 
-            <span data-cy="low">{{ data.low }} &deg;</span></small>
-    </div>
-    <div class="stack wind">
-        <small>{{ data.windDir | uppercase }}</small>
-        <span class="icon wi wi-wind-default wind-rotate" [style.--wind-direction]="data.windDegree + 'deg'"></span>
-        <small>{{ data.windSpeedMph }} mph</small>
-    </div>
+<div class="weather-card" *ngIf="tempData | async as data; else loading">
+  <div class="stack current-temp">
+    <span class="temp-number"
+      >{{ data.current
+      }}<span class="temp-unit">&deg; {{ data.unit }}</span></span
+    >
+  </div>
+  <div class="stack icon">
+    <small>{{ data.weatherDescription }}</small>
+    <nx-demo-weather-icon
+      class="icon"
+      [weatherCode]="data.weatherCode || ''"
+    ></nx-demo-weather-icon>
+    <small *ngIf="data.high && data.low"
+      ><span data-cy="high">{{ data.high }}&deg;</span> /
+      <span data-cy="low">{{ data.low }} &deg;</span></small
+    >
+  </div>
+  <div class="stack wind">
+    <small>{{ data.windDir | uppercase }}</small>
+    <span
+      class="icon wi wi-wind-default wind-rotate"
+      [style.--wind-direction]="data.windDegree + 'deg'"
+    ></span>
+    <small>{{ data.windSpeedMph }} mph</small>
+  </div>
 </div>
 
 <ng-template #loading>
-    <h1>Loading...</h1>
+  <h1>Loading...</h1>
 </ng-template>
