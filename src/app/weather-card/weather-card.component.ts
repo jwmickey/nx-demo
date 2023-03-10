@@ -13,16 +13,21 @@ export class WeatherCardComponent {
   constructor(private service: WeatherService) {}
 
   get theme(): string {
+    const dateTheme = new Date().toISOString().substring(5, 10);
+    let theme = `bg-theme-${dateTheme} `;
+
     const hour = new Date().getHours();
     if (hour >= 20 || hour < 7) {
-      return 'bg-theme-night';
+      theme += 'bg-theme-night';
     } else if (hour >= 7 && hour < 10) {
-      return 'bg-theme-morning';
+      theme += 'bg-theme-morning';
     } else if (hour >= 10 && hour < 18) {
-      return 'bg-theme-day';
+      theme += 'bg-theme-day';
     } else {
-      return 'bg-theme-evening';
+      theme += 'bg-theme-evening';
     }
+
+    return theme;
   }
 
   toggleSettings() {

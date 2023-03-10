@@ -89,4 +89,29 @@ describe(WeatherCardComponent.name, () => {
       po.root().should('have.class', `bg-theme-${theme}`);
     })
   });
+
+  it('renders special themes', () => {
+    mockCurrentData$.next({
+      unit: 'F',
+      current: 75,
+      high: 80,
+      low: 65,
+      highTime: new Date().toLocaleString(),
+      lowTime: new Date(Date.now() - 3600 * 4).toLocaleString(),
+      weatherDescription: 'Rainy',
+      weatherCode: '266',
+      windDegree: '60',
+      windSpeedMph: '4',
+      windDir: 'n',
+    });
+    cy.clock().then(clock => {
+      const mockDate = new Date();
+      mockDate.setUTCMonth(2);
+      mockDate.setUTCDate(17);
+      clock.setSystemTime(mockDate);
+    });
+    cy.detectChanges();
+    po.root().should('have.class', 'bg-theme-03-17');
+    po.root().matchImage();
+  });
 });

@@ -93,3 +93,13 @@
   background: rgb(255,216,0);
   background: linear-gradient(74deg, rgba(255,216,0,1) 15%, rgba(255,233,202,1) 100%);
 }
+
+// st patricks day
+.bg-theme-03-17 {
+  background: rgb(0, 178, 0);
+  background-image: url(assets/st-patricks-day.svg);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: contain;
+  color: #fff;
+}
