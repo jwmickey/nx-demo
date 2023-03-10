@@ -11,4 +11,21 @@ export class WeatherCardComponent {
   tempData: Observable<WeatherData> = this.service.getCurrentData();
 
   constructor(private service: WeatherService) {}
+
+  get theme(): string {
+    const hour = new Date().getHours();
+    if (hour >= 20 || hour < 7) {
+      return 'bg-theme-night';
+    } else if (hour >= 7 && hour < 10) {
+      return 'bg-theme-morning';
+    } else if (hour >= 10 && hour < 18) {
+      return 'bg-theme-day';
+    } else {
+      return 'bg-theme-evening';
+    }
+  }
+
+  toggleSettings() {
+    console.log('TODO');
+  }
 }

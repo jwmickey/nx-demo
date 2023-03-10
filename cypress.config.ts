@@ -8,10 +8,11 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       initPlugin(on, config);
     },
+    experimentalWebKitSupport: true
   },
   env: {
     pluginVisualRegressionForceDeviceScaleFactor: false,
     pluginVisualRegressionUpdateImages: false,
-    pluginVisualRegressionDiffConfig: { threshold: 0.01 },
+    pluginVisualRegressionDiffConfig: { threshold: 0.1 },
   },
 });

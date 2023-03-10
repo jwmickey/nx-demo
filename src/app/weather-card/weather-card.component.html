@@ -1,4 +1,7 @@
-<div class="weather-card" *ngIf="tempData | async as data; else loading">
+<div class="weather-card" [ngClass]="theme" *ngIf="tempData | async as data; else loading">
+  <div class="settings">
+    <button (click)="toggleSettings()"><img src="assets/icon-gear.svg" alt="Settings"></button>
+  </div>
   <div class="stack current-temp">
     <span class="temp-number"
       >{{ data.current
@@ -27,5 +30,7 @@
 </div>
 
 <ng-template #loading>
-  <h1>Loading...</h1>
+  <div class="weather-card">
+    <h1>Loading...</h1>
+  </div>
 </ng-template>

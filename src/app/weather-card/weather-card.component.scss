@@ -5,10 +5,32 @@
   margin: 20px;
   padding: 20px;
   max-width: 320px;
+  min-height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
 }
+
+.settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  button {
+    border: 0;
+    background: transparent;
+    margin: 3px;
+    padding: 2px;
+    cursor: pointer;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
 .current-temp {
   display: flex;
   align-items: flex-start;
@@ -22,6 +44,7 @@
     font-size: 1.25rem;
   }
 }
+
 .high-low {
   display: flex;
   align-items: flex-end;
@@ -47,4 +70,26 @@
 }
 .wind-rotate {
   transform: rotate(var(--wind-direction)) rotate(180deg);
+}
+
+.bg-theme-evening {
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,121,29,1) 63%, rgba(252,176,69,1) 100%);
+}
+
+.bg-theme-day {
+  background: rgb(34,144,195);
+  background: radial-gradient(circle, rgba(34,144,195,1) 25%, rgba(45,170,253,1) 100%);
+  color: rgb(40, 41, 112);
+}
+
+.bg-theme-night {
+  background: rgb(124,59,148);
+  background: linear-gradient(90deg, rgba(124,59,148,1) 0%, rgba(42,40,48,1) 50%, rgba(124,59,148,1) 100%);
+  color: #a88fa9; 
+}
+
+.bg-theme-morning {
+  background: rgb(255,216,0);
+  background: linear-gradient(74deg, rgba(255,216,0,1) 15%, rgba(255,233,202,1) 100%);
 }

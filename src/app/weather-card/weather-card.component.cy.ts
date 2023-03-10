@@ -63,4 +63,30 @@ describe(WeatherCardComponent.name, () => {
     po.lowTemp().should('not.exist');
     po.root().matchImage();
   });
+
+  it('shows background theme based on time of day', () => {
+    mockCurrentData$.next({
+      unit: 'C',
+      current: 20,
+      highTime: new Date().toLocaleString(),
+      lowTime: new Date(Date.now() - 3600 * 4).toLocaleString(),
+      weatherCode: '266',
+      windDegree: '60',
+      windSpeedMph: '4',
+      windDir: 'n',
+    });
+
+    [
+      ['morning', 8],
+      ['day', 12],
+      ['evening', 19],
+      ['night', 0]
+    ].forEach(([ theme, hour ]) => {
+      cy.clock().then(clock => {
+        clock.setSystemTime(new Date().setHours(Number(hour)))
+      });
+      cy.detectChanges();
+      po.root().should('have.class', `bg-theme-${theme}`);
+    })
+  });
 });
