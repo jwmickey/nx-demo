@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 .angular
+
+# Image snapshots
+**/__image_snapshots__/*.diff.png
